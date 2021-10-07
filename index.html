@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!--   meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+
+    
+    <title>nid card</title>
+    <style>
+        @import url('https://fonts.maateen.me/adorsho-lipi/font.css');
+        body{
+            overflow-x: hidden;
+
+        }
+        .natinoal-id-card{
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            position:relative;
+            display: none;
+       
+        }
+        #printCard{
+            padding: 4px;
+            width: 720.6px;
+            height: 238.2px;
+        }
+        .nid-image {
+            width:100%;
+            height:100%;
+            object-fit: cover;
+            
+        }
+        .preview{
+            z-index: 99;
+            color: red;
+        }
+        
+        #banglaname , #fathername , #mothername  #villageName , #dahkghorName , #jonmostan , #mothername{
+            font-family: 'AdorshoLipi', sans-serif;
+            text-shadow: 0 0 1.2px #010101;
+            color: rgba(58, 58, 58, 0.678);
+        }
+        #banglaname{
+            position: absolute;
+            top: 77px;
+            left: 95px;
+            font-weight: bold;
+        }
+
+        #englishname{
+            position: absolute;
+            font-size: 14px;
+            top: 107px;
+            left: 95px;
+            font-family: sans-serif;
+           color: rgba(58, 58, 58, 0.678);
+            text-transform: uppercase;
+            text-shadow: 0 0 1.2px #010101;
+        }
+        #fathername{
+            position: absolute;
+            font-size: 14px;
+            top: 133px;
+            left: 95px;
+        }
+        #mothername{
+            position: absolute;
+            font-size: 14px;
+            top: 158px;
+            left: 95px;
+        }
+        #dobirth{
+            position: absolute;
+            font-size: 26px;
+            top: 169px;
+            left: 95px;
+            text-transform: uppercase;
+            color: orangered;
+            font-weight: 600 !important;
+        }
+        #idNo{
+            position: absolute;
+            top: 195px;
+            left: 95px;
+            font-size: 22px;
+            
+            font-weight: 600;
+        }
+        /* .opacityImage{
+            height:245px;
+            width: 245px;
+            opacity: 0.3;
+            position: absolute;
+            top: 290px;
+            left: 400px;
+            left: 200px;
+            z-index: 12;
+        } */
+        .filedname{
+            font-weight: normal;
+            text-transform: capitalize;
+            z-index: 99 !important;
+            text-shadow: 0 0 1.2px #010101;
+            color: rgba(39, 39, 39, 0.678);
+            font-size: 14px;
+
+        }
+        .birthDate, .idnumber{
+            font-weight: 400;
+            color: rgba(39, 39, 39, 0.678);
+        }
+        #thikanaGramRasta {
+            width: 336px;
+            height: 48px;
+            position: absolute;
+            background: white;
+            top: 48px;
+            left: 373px;
+        }
+        #blood{
+            position: absolute;
+            top: 98px;
+            left: 489px;
+        }
+        #jonmostan{
+            position: absolute;
+            top: 98px;
+            left: 545px;
+        }
+        #sendingText{
+            position: absolute;
+            top: 146px;
+            left: 628px;
+        }
+        #downladBtn{
+            display: none;
+            margin: 10px;
+        }
+
+        .animText{
+            animation: animtitle .5s ease-in;
+        }
+        @keyframes animtitle{
+            from { 
+                margin-left:-60px;
+                opacity: .5;
+            }to{
+                margin-left: 0;
+                opacity: 1;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <button id="downladBtn" class="btn btn-primary">download</button>
+        <div class="container py-4" id="nid-form">
+          <h3 class="text-primary animText">Make Your NID Card</h3>
+   
+          <div class="row">
+            <div class="col-sm-6">
+                
+            <div class="form-group">  
+            <label for="bn"></label>   
+           <form onsubmit="event.preventDefault(); submitForm();"  id="user-form">
+   
+                  
+          <div class="form-group">
+                <label for="bn">Your Bangla Name</label>
+               <input type="text" id="bangname" class="form-control" name="fname" placeholder="Your Bangla Name"   required>
+               </div>
+               <div class="form-group">
+               <label for="en">Your English Name</label>
+               <input type="text" id="Ename" class="form-control" name="ename" placeholder="Your English Name"   required>
+               </div>
+               <div class="form-group">
+               <label for="">Your Father's Name (Bangla)</label>
+               <input type="text" id="Fname" class="form-control" name="faname" placeholder="Your Father's Name (Bangla)"   required>
+               </div>
+               <div class="form-group">
+               <label for="">Your Mother's Name (Bangla)</label>
+               <input type="text" id="Mname" class="form-control" name="mname" placeholder="Your Mother's Name (Bangla)"   required>
+               </div>
+               <div class="form-group">
+                <label for="">vilage/road (Bangla)</label>
+                <input type="text" id="village" class="form-control" name="mname" placeholder="Vilage road"   required>
+                </div>
+                <div class="form-group">
+                <label for="">Dhakghor (Bangla)</label>
+                <input type="text" id="dhakghor" class="form-control" name="mname" placeholder="dhakghor"   required>
+                </div>
+                <div class="form-group">
+                <label for="">Birth Place (Bangla)</label>
+                <input type="text" id="birthdayplace" class="form-control" name="mname" placeholder="Birth palce"   required>
+                </div>
+               <div class="form-group">
+               <label for="">Your Date Of Birth(English)</label>
+               <input type="text" id="birthdate" class="form-control" name="dname" placeholder="02 JAN 2003"   required>
+               </div>
+               <div class="form-group">
+               <label for="">Your ID Number (English)</label>
+               <input type="text" id="idNumber"  class="form-control" name="nid" placeholder="Your ID Number (English)"   required>
+               </div>
+               
+               <div class="form-group">
+                <label for="">Sending Date(bangla)</label>
+                <input type="text" id="Sendingdate" class="form-control" name="dname" placeholder="২৮/০৯/২০২১"   required>
+                </div>
+                <div class="form-group">
+                    <label for="">Blood Group</label> 
+                    <select id="bloodGroup" class="form-select" aria-label="Default select example">
+                        <option selected value="A+">A+</option>
+                        <option value="B+">B+</option>
+                        <option value="A-">A-</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        
+                      </select>
+                   </div>
+                    <br>
+               <div class="form-group">
+                <label for="">Upload Your Picture(80px X 80px)</label>
+               <b></b> <input id="uploadId" type="file" name="file" accept="image/*"  required>
+               </div>
+               <div class="form-group">
+                <label for="">Upload Your signature (20px X 80)</label>
+               <b></b> <input id="uploadSingture" type="file" name="file" accept="image/*"  required>
+               </div>
+
+               
+                <button type="submit" onclick="submitForm()" class="btn btn-success">genarate</button>
+               
+               </form>
+         </div>
+              
+              </div>
+              </div>
+              </div>
+
+    <div class="natinoal-id-card" id="nationalIdCard">
+        
+        <div id="banglaname"></div>
+        <div id="englishname"></div>
+        <div id="fathername"></div>
+        <div id="mothername"></div>
+        <div id="dobirth"></div>
+        <div id="idNo"></div>
+        <div id="thikanaGramRasta"></div>
+        <div id="blood"></div>
+        <div id="jonmostan"></div>
+        
+        <div id="sendingText"></div>
+        <img id="imagePreview" style="position: absolute; top: 81px; left: 9px;" height="80px" width="76px"></img>
+        <img id="signaturePreview" style="position: absolute; top: 164px; left: 9px;" height="20px" width="76px"></img>
+        <!-- <img class="opacityImage" src="shapla.png" alt="" srcset=""> -->
+
+
+        <div id="printCard">
+        <img src="./trynewPng.png" alt="" id="nidImage" class="nid-image">
+
+        </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./main.js"></script>
+    <script>
+        window.onload = function(){
+            
+            document.getElementById("downladBtn").addEventListener('click',() => {
+                const nationalIdCard = document.getElementById("nationalIdCard");
+                const opt = {
+                margin: 0,
+                filename: 'myfile.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 1 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+            };
+                html2pdf().from(nationalIdCard).set(opt).save()
+                
+            })
+
+        }
+    </script>
+</body>
+</html>
